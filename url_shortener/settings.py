@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'url_shortener.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
+#
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -141,4 +141,9 @@ DATABASE_URL = os.environ.get('DATABASE_URL')
 
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES = {
+    'default': {
+        dj_database_url.config(conn_max_age=600, ssl_require=True)
+    }
+}
