@@ -1,1 +1,1 @@
-web: gunicorn url_shortener.wsgi
+web: python manage.py collectstatic --no-input; gunicorn url_shortener.wsgi
