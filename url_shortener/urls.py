@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from url_app.views import ShortURLView
+from url_app.views import ShortURLView, UrlRedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', ShortURLView.as_view(), name='main_site'),
-    path('<str:slugs>', ShortURLView.as_view(), name='redirect'),
+    path('<str:slugs>', UrlRedirectView.as_view(), name='redirect'),
 
 ]

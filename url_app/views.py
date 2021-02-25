@@ -31,7 +31,7 @@ class ShortURLView(View):
 
 
 class UrlRedirectView(View):
-    def get(self, slugs):
+    def get(self, request, slugs):
         data = ShortUrl.objects.get(slug=slugs)
         return redirect(data.url)
 
